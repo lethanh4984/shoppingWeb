@@ -52,7 +52,9 @@ public class Products {
                 ", priceDiscount=" + priceDiscount +
                 ", size='" + size + '\'' +
                 ", image='" + image + '\'' +
+                ", status=" + status +
                 ", productTypes=" + productTypes +
+                ", reviews=" + reviews +
                 '}';
     }
 }
