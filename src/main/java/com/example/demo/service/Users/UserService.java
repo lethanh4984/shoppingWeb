@@ -2,6 +2,7 @@ package com.example.demo.service.Users;
 
 import com.example.demo.model.DTO.ROLENAME;
 //import com.example.demo.model.DTO.UserLogin;
+import com.example.demo.model.DTO.UserPrinciple;
 import com.example.demo.model.User;
 import com.example.demo.repository.IUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,11 @@ public class UserService implements IUserService{
         userRepo.deleteById(userId);
     }
 
+    @Override
+    public User findByUserName(String userName) {
+        return userRepo.findByUserName(userName);
+    }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -59,13 +65,10 @@ public class UserService implements IUserService{
         }
 
         // Create UserDetails object with the user's authorities
-        return new org.springframework.security.core.userdetails.User(
-                user.getUserName(),
-                user.getPassword(),
-                getAuthorities(user)
-        );
+        return  UserPrinciple.build(user);
     }
 
+    //change role => GrantedAuthority for login
     private Collection<? extends GrantedAuthority> getAuthorities(User user) {
         return user.getRole().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getRoleName()))

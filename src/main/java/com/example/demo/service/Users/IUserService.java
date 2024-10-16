@@ -20,4 +20,5 @@ public interface IUserService extends UserDetailsService {
 
     void delete(int userId);
 
+    User findByUserName(String userName);
 }
