@@ -3,14 +3,15 @@ package com.example.demo.controller.admin;
 import com.example.demo.model.DTO.UserForm;
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
-import com.example.demo.service.ProductType.IProductTypeService;
-import com.example.demo.service.Products.IProductService;
-import com.example.demo.service.Role.IRoleService;
-import com.example.demo.service.Users.IUserService;
+import com.example.demo.service.productType.IProductTypeService;
+import com.example.demo.service.products.IProductService;
+import com.example.demo.service.role.IRoleService;
+import com.example.demo.service.users.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -35,6 +36,9 @@ public class AccountController {
        return userService.findAll(pageable);
     }
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping("/addAccount")
     public User addAccount(@RequestBody UserForm userDTO){
 
@@ -45,7 +49,9 @@ public class AccountController {
         user.setUserName(userDTO.getUserName());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
-        user.setPassword(userDTO.getPassword());
+
+        String password = passwordEncoder.encode(userDTO.getPassword());
+        user.setPassword(password);
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setRole(Collections.singleton(role));
         user.setEmail(userDTO.getEmail());

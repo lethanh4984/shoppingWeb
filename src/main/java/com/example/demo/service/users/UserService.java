@@ -1,4 +1,4 @@
-package com.example.demo.service.Users;
+package com.example.demo.service.users;
 
 import com.example.demo.model.DTO.ROLENAME;
 //import com.example.demo.model.DTO.UserLogin;

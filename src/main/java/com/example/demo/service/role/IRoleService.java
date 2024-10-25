@@ -1,4 +1,4 @@
-package com.example.demo.service.Role;
+package com.example.demo.service.role;
 
 import com.example.demo.model.Role;
 import org.springframework.data.domain.Page;

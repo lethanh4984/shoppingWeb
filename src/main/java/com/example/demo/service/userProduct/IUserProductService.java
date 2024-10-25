@@ -1,4 +1,4 @@
-package com.example.demo.service.UserProduct;
+package com.example.demo.service.userProduct;
 
 import com.example.demo.model.UserProduct;
 import org.springframework.data.domain.Page;

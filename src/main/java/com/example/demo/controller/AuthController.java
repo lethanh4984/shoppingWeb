@@ -2,8 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.config.JwtResponse;
 import com.example.demo.model.User;
-import com.example.demo.service.Jwt.JwtService;
-import com.example.demo.service.Users.IUserService;
+import com.example.demo.service.jwt.JwtService;
+import com.example.demo.service.users.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

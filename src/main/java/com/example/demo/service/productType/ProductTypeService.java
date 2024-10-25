@@ -1,4 +1,4 @@
-package com.example.demo.service.ProductType;
+package com.example.demo.service.productType;
 
 import com.example.demo.model.ProductTypes;
 import com.example.demo.repository.IProductTypeRepo;

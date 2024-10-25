@@ -1,4 +1,4 @@
-package com.example.demo.service.Jwt;
+package com.example.demo.service.jwt;
 
 import com.example.demo.model.DTO.UserPrinciple;
 import io.jsonwebtoken.*;

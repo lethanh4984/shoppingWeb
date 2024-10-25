@@ -1,4 +1,4 @@
-package com.example.demo.service.Review;
+package com.example.demo.service.review;
 
 import com.example.demo.model.Reviews;
 
